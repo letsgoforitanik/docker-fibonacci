@@ -1,0 +1,13 @@
+# build production images
+services:
+  api:
+    build: ./express-server
+    image: letsgoforitanik/fibonacci-api
+
+  worker:
+    build: ./worker
+    image: letsgoforitanik/fibonacci-worker
+
+  react:
+    build: ./react-app
+    image: letsgoforitanik/fibonacci-react  
