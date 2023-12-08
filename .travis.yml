@@ -5,3 +5,5 @@ before_install:
     - docker build -t react-app -f ./react-app/Dockerfile.dev react-app/
 script:
     - docker run -e CI=true -v /app/node_modules -v $(pwd)/react-app:/app react-app npm run test
+    - docker compose -f compose.travis.yml build
+    - docker compose -f compose.travis.yml push
