@@ -7,8 +7,8 @@ script:
     - docker run -e CI=true -v /app/node_modules -v $(pwd)/react-app:/app react-app npm run test
 after_success:
     - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_ACCESS_TOKEN"
-    - docker-compose build
-    - docker-compose push
+    - docker-compose -f compose.travis.yml build
+    - docker-compose -f compose.travis.yml push
 deploy:
     on:
         branch: master
