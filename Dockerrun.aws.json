@@ -15,25 +15,29 @@
             "links": [
                 "react",
                 "api"
-            ]
+            ],
+            "memory": 128
         },
         {
             "name": "react",
             "image": "letsgoforitanik/fibonacci-react",
             "hostname": "react",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "api",
             "image": "letsgoforitanik/fibonacci-api",
             "hostname": "api",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "worker",
             "image": "letsgoforitanik/fibonacci-worker",
             "hostname": "worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         }
     ]
 }
