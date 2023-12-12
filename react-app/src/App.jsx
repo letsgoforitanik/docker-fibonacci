@@ -11,20 +11,20 @@ export default function App() {
     useEffect(() => fetchSeenIndices() && fetchValues() && undefined, []);
     
     async function fetchSeenIndices() {
-        const response = await axios.get(env.apiUrl + "values/all");
+        const response = await axios.get("/api/values/all");
         const seenIndices = response.data.map(e => e.number);
         setSeenIndices(seenIndices);
     }
 
     async function fetchValues() {
-        const response = await axios.get(env.apiUrl + "values/current");
+        const response = await axios.get("/api/values/current");
         const values = response.data;
         setValues(values);
     }
 
     async function handleFormSubmit(event) {
         event.preventDefault();
-        await axios.post(env.apiUrl + "values", { index: currentIndex });
+        await axios.post("/api/values", { index: currentIndex });
     }
 
     function handleTextChange(event) {
