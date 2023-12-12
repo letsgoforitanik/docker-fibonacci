@@ -9,3 +9,14 @@ after_success:
     - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_ACCESS_TOKEN"
     - docker-compose build
     - docker-compose push
+deploy:
+    on:
+        branch: master
+    provider: elasticbeanstalk
+    region: us-east-1
+    app: "Docker Fibonacci"
+    env: "DockerFibonacci-env"
+    bucket_name: "elasticbeanstalk-us-east-1-297436977708"
+    bucket_path: "docker-fibonacci"
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"

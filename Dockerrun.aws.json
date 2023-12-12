@@ -1,0 +1,39 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "nginx",
+            "image": "letsgoforitanik/fibonacci-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "react",
+                "api"
+            ]
+        },
+        {
+            "name": "react",
+            "image": "letsgoforitanik/fibonacci-react",
+            "hostname": "react",
+            "essential": false
+        },
+        {
+            "name": "api",
+            "image": "letsgoforitanik/fibonacci-api",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "letsgoforitanik/fibonacci-worker",
+            "hostname": "worker",
+            "essential": false
+        }
+    ]
+}
