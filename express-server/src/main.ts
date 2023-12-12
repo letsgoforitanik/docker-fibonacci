@@ -22,7 +22,7 @@ async function main() {
     pgClient.on('error', error => console.log(error));
     await pgClient.query('CREATE TABLE IF NOT EXISTS values (number INT)');
 
-    console.log('Postgres client connected');
+    console.log('Connected to postgres database');
 
     // redis
 
