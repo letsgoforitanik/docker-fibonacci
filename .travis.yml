@@ -15,7 +15,7 @@ deploy:
     provider: elasticbeanstalk
     region: us-east-1
     app: "Docker Fibonacci"
-    env: "DockerFibonacci-env"
+    env: "DockerFibonacci-env2"
     bucket_name: "elasticbeanstalk-us-east-1-297436977708"
     bucket_path: "docker-fibonacci"
     access_key_id: "$AWS_ACCESS_KEY"

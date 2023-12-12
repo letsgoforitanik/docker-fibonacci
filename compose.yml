@@ -1,0 +1,36 @@
+services:
+  nginx:
+    image: letsgoforitanik/fibonacci-nginx
+    restart: always
+    depends_on:
+      - react
+    ports:
+      - 80:80
+
+  api:
+    image: letsgoforitanik/fibonacci-api
+    restart: always
+    environment:
+      SERVER_PORT: 5000
+      PG_HOST: fibonacci-postgres.cp6uczhvjpvi.us-east-1.rds.amazonaws.com
+      PG_DATABASE: postgres
+      PG_USER: postgres
+      PG_PASSWORD: Hydrogen2
+      PG_PORT: 5432
+      REDIS_URL: redis://fibonacci-redis.ik7z0p.clustercfg.use1.cache.amazonaws.com:6379
+    
+  react:
+    image: letsgoforitanik/fibonacci-react
+    restart: always
+    depends_on:
+      - api
+
+  worker:
+    image: letsgoforitanik/fibonacci-worker
+    restart: always
+    environment:
+      REDIS_URL: redis://fibonacci-redis.ik7z0p.clustercfg.use1.cache.amazonaws.com:6379
+
+
+volumes:
+  postgresdata: {}
