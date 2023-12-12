@@ -10,6 +10,8 @@ services:
   api:
     image: letsgoforitanik/fibonacci-api
     restart: always
+    env_file:
+      - .env
 
     
   react:
@@ -21,7 +23,8 @@ services:
   worker:
     image: letsgoforitanik/fibonacci-worker
     restart: always
-
+    env_file:
+      - .env
 
 
 volumes:
